@@ -1,11 +1,14 @@
 import React from 'react'
 import App from 'next/app'
 import { createGlobalStyle } from 'styled-components'
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
+    margin: 0;
   }
   h1 {
     font-size: 2rem;
@@ -30,7 +33,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props
-    return (<div><Component {...pageProps} /><GlobalStyle></GlobalStyle></div>)
+    return (<div><Provider store={store}><Component {...pageProps} /><GlobalStyle></GlobalStyle></Provider></div>)
   }
 }
 
