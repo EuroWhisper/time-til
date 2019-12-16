@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Container from '../container';
 import NavMenu from './NavMenu';
+import { useDispatch } from 'react-redux';
+import { TOGGLE_MENU } from '../../redux/actions/actiontypes';
 
 const Header = styled.header`
     width: 100%;
@@ -64,6 +66,8 @@ const BurgerIcon = styled.span`
 
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+
     return (
         <Header>
             <Container>
@@ -72,7 +76,7 @@ const Navbar = () => {
                         <Logo />
                         <Title>Time 'til</Title>
                     </LogoWrapper>
-                    <MenuToggle>
+                    <MenuToggle onClick={() => {dispatch({type: TOGGLE_MENU})}}>
                         <BurgerIcon/>
                     </MenuToggle>
                     <NavMenu />

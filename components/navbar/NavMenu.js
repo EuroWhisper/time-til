@@ -1,12 +1,16 @@
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { userSelector } from '../../redux/reducers/user';
+import { toggleMenuSelector } from '../../redux/reducers/navMenu';
 
 const Wrapper = styled.nav`
-    display: block;
+    display: none;
     flex-basis: 100%;
-    
+
+    ${ props => props.toggleMenu && css`
+        display: block;
+    `}
 
     @media(min-width: 769px) {
         display: flex;
@@ -41,9 +45,10 @@ const Button = styled.button`
 
 const NavMenu = () => {
     const user = useSelector(userSelector);
+    const toggleMenu = useSelector(toggleMenuSelector);
 
     return (
-        <Wrapper>
+        <Wrapper toggleMenu={toggleMenu}>
         {
             user && (
                 <Menu>
