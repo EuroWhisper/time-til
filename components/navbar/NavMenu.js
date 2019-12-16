@@ -11,8 +11,11 @@ const Menu = styled.ul`
 `;
 
 const MenuItem = styled.li`
-    color: white;
     margin-bottom: 24px;
+`;
+
+const MenuLink = styled.a`
+    color: white;
 `;
 
 const NavMenu = () => {
@@ -23,11 +26,11 @@ const NavMenu = () => {
         {
             user && (
                 <Menu>
-                    <MenuItem><Link href="/">Home</Link></MenuItem>
-                    <MenuItem><Link href="/profile">Profile</Link></MenuItem>
-                    <MenuItem><Link href="/events">Events</Link></MenuItem>
-                    <MenuItem><Link href="/about">About</Link></MenuItem>
-                    <MenuItem><Link href="/contact">Contact</Link></MenuItem>
+                    <MenuItem><Link href="/"><MenuLink>Home</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/profile"><MenuLink>Profile</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/events"><MenuLink>Events</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/about"><MenuLink>About</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/contact"><MenuLink>Contact</MenuLink></Link></MenuItem>
                     <MenuItem><Link href="/logout"><button>Logout</button></Link></MenuItem>
                 </Menu>
             )
@@ -35,9 +38,9 @@ const NavMenu = () => {
         {
             !user && (
                 <Menu>
-                    <MenuItem><Link href="/">Home</Link></MenuItem>
-                    <MenuItem><Link href="/about">About</Link></MenuItem>
-                    <MenuItem><Link href="/contact">Contact</Link></MenuItem>
+                    <MenuItem><Link href="/"><MenuLink>Home</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/about"><MenuLink>About</MenuLink></Link></MenuItem>
+                    <MenuItem><Link href="/contact"><MenuLink>Contact</MenuLink></Link></MenuItem>
                     <MenuItem><Link href="/login"><button>Login</button></Link></MenuItem>
                 </Menu>
             )
