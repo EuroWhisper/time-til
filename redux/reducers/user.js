@@ -1,11 +1,11 @@
 import { SET_USER } from '../actions/actiontypes';
 
-// const initialState = {
-//     id: 14367453869345334,
-//     email: "john@gmail.com"
-// };
+const initialState = {
+    id: 14367453869345334,
+    email: "john@gmail.com"
+};
 
-const initialState = null;
+// const initialState = null;
 
 const user = (state = initialState, action) => {
     switch(action.type) {
@@ -14,6 +14,10 @@ const user = (state = initialState, action) => {
         default:
             return state;
     }
+};
+
+export const userSelector = (state) => {
+    return state.user;
 };
 
 export default user;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Container from '../container';
+import NavMenu from './NavMenu';
 
 const Header = styled.header`
     width: 100%;
@@ -16,6 +17,10 @@ const Header = styled.header`
 const NavbarInner = styled.div`
     display: flex;
     align-items: center;
+`;
+
+const LogoWrapper = styled.div`
+    display: flex;
 `;
 
 const Logo = styled.div`
@@ -41,8 +46,11 @@ const Navbar = () => {
         <Header>
             <Container>
                 <NavbarInner>
-                    <Logo />
-                    <Title>Time 'til</Title>
+                    <LogoWrapper>
+                        <Logo />
+                        <Title>Time 'til</Title>
+                    </LogoWrapper>
+                    <NavMenu />
                 </NavbarInner>
             </Container>
         </Header>
