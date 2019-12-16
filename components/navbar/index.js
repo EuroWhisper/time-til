@@ -4,7 +4,7 @@ import NavMenu from './NavMenu';
 
 const Header = styled.header`
     width: 100%;
-    height: 64px;
+    min-height: 64px;
     background-color: #333;
     display: flex;
     align-items: center;
@@ -15,8 +15,11 @@ const Header = styled.header`
 `;
 
 const NavbarInner = styled.div`
+    position: relative;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
 `;
 
 const LogoWrapper = styled.div`
@@ -39,6 +42,25 @@ const Title = styled.h1`
     margin: 0;
 `;
 
+const MenuToggle = styled.button`
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    background-color: transparent;
+
+    @media (min-width: 769px) {
+        display: none;
+    }
+`;
+
+const BurgerIcon = styled.span`
+    display: inline-block;
+    background-image: url(./img/components/navbar/burger-menu.svg);
+    width: 100%;
+    height: 100%;
+`;
 
 
 const Navbar = () => {
@@ -50,6 +72,9 @@ const Navbar = () => {
                         <Logo />
                         <Title>Time 'til</Title>
                     </LogoWrapper>
+                    <MenuToggle>
+                        <BurgerIcon/>
+                    </MenuToggle>
                     <NavMenu />
                 </NavbarInner>
             </Container>

@@ -8,3 +8,11 @@ This app was built in order to achieve the following learning goals:
 - Learn how to use Redux selectors
 - Learn how to create custom React hooks
 - Learn how to use the Moment JS library to convert timezones
+
+This app should demonstrate the following:
+- Ability to create simple full stack applications with authentication
+- Ability to implement a sensible state management solution for React apps
+- Awareness of the importance of SSR for improved SEO of React apps
+- Ability to write modern React code (functional components with hooks & custom hooks instead of classes with lifecycle methods)
+- Ability to use a CSS-in-JS solution to prevent specifity wars that happen with plain old css selectors
+- A passion for learning and the desire to work for a company that likes helping their staff continually improve their skillset
