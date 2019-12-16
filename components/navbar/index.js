@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Container from '../container';
 import NavMenu from './NavMenu';
-import { useDispatch } from 'react-redux';
-import { TOGGLE_MENU } from '../../redux/actions/actiontypes';
+import MenuToggle from './MenuToggle';
+
 
 const Header = styled.header`
     width: 100%;
@@ -44,29 +44,13 @@ const Title = styled.h1`
     margin: 0;
 `;
 
-const MenuToggle = styled.button`
-    width: 32px;
-    height: 32px;
-    margin: 0;
-    padding: 0;
-    border-style: none;
-    background-color: transparent;
 
-    @media (min-width: 769px) {
-        display: none;
-    }
-`;
 
-const BurgerIcon = styled.span`
-    display: inline-block;
-    background-image: url(./img/components/navbar/burger-menu.svg);
-    width: 100%;
-    height: 100%;
-`;
+
 
 
 const Navbar = () => {
-    const dispatch = useDispatch();
+    
 
     return (
         <Header>
@@ -76,9 +60,7 @@ const Navbar = () => {
                         <Logo />
                         <Title>Time 'til</Title>
                     </LogoWrapper>
-                    <MenuToggle onClick={() => {dispatch({type: TOGGLE_MENU})}}>
-                        <BurgerIcon/>
-                    </MenuToggle>
+                    <MenuToggle/>
                     <NavMenu />
                 </NavbarInner>
             </Container>
