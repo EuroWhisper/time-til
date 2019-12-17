@@ -1,4 +1,5 @@
 import React from 'react'
+import withRedux from "next-redux-wrapper";
 import App from 'next/app'
 import { createGlobalStyle } from 'styled-components'
 import { Provider } from 'react-redux';
@@ -42,17 +43,13 @@ class MyApp extends App {
     return { pageProps };
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: props.pageProps.user
-    };
-  }
-
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, store } = this.props;
+    if (pageProps.user) {
+      store.dispatch({type: 'SET_USER', payload: pageProps.user});
+    }
     return (<div><Provider store={store}><Component {...pageProps} /><GlobalStyle></GlobalStyle></Provider></div>)
   }
 }
 
-export default MyApp
+export default withRedux(() => store)(MyApp);
