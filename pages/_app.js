@@ -31,6 +31,24 @@ class MyApp extends App {
   //   return { ...appProps }
   // }
 
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+    if (ctx.req && ctx.req.session.passport) {
+      pageProps.user = ctx.req.session.passport.user;
+    }
+    return { pageProps };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: props.pageProps.user
+    };
+  }
+
   render() {
     const { Component, pageProps } = this.props
     return (<div><Provider store={store}><Component {...pageProps} /><GlobalStyle></GlobalStyle></Provider></div>)
