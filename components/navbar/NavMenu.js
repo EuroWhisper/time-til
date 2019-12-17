@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { userSelector } from '../../redux/reducers/user';
 import { toggleMenuSelector } from '../../redux/reducers/navMenu';
@@ -32,7 +32,15 @@ const MenuItem = styled.li`
 const MenuLink = styled.a`
     color: white;
 `;
+const fadeIn = keyframes`
+    from {
+        background-color: transparent;
+    }
 
+    to {
+        background-color: white;
+    }
+`;
 const Button = styled.button`
     background-color: transparent;
     border-color: white;
@@ -41,7 +49,15 @@ const Button = styled.button`
     border-radius: 8px;
     height: 48px;
     width: 128px;
+
+    &:hover {
+        animation: ${fadeIn} 400ms linear;
+        animation-fill-mode: forwards;
+        color: black;
+    }
 `;
+
+
 
 const NavMenu = () => {
     const user = useSelector(userSelector);

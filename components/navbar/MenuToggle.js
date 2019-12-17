@@ -22,9 +22,12 @@ const BurgerIcon = styled.span`
     height: 100%;
 `;
 
+
+
 const MenuToggle = () => {
     const dispatch = useDispatch();
-    return <ToggleButton onClick={() => {dispatch({type: TOGGLE_MENU})}}><BurgerIcon></BurgerIcon></ToggleButton>;
+
+    return <ToggleButton onClick={() => { dispatch({ type: TOGGLE_MENU })}}><BurgerIcon></BurgerIcon></ToggleButton>;
 };
 
 export default MenuToggle;
