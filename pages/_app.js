@@ -32,6 +32,7 @@ class MyApp extends App {
   //   return { ...appProps }
   // }
 
+  // This function sets the props for the MyApp component.
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
     if (Component.getInitialProps) {
@@ -45,6 +46,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, store } = this.props;
+    // If there is a user, add it to our global state.
     if (pageProps.user) {
       store.dispatch({type: 'SET_USER', payload: pageProps.user});
     }

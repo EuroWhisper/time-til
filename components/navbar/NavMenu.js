@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled, { css, keyframes } from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { TOGGLE_MENU } from '../../redux/actions/actiontypes';
 import { userSelector } from '../../redux/reducers/user';
 import { toggleMenuSelector } from '../../redux/reducers/navMenu';
 
@@ -62,14 +63,15 @@ const Button = styled.button`
 const NavMenu = () => {
     const user = useSelector(userSelector);
     const toggleMenu = useSelector(toggleMenuSelector);
+    const dispatch = useDispatch();
 
     return (
         <Wrapper toggleMenu={toggleMenu}>
         {
             user && (
                 <Menu>
-                    <MenuItem><Link href="/"><MenuLink>Home</MenuLink></Link></MenuItem>
-                    <MenuItem><Link href="/profile"><MenuLink>Profile</MenuLink></Link></MenuItem>
+                    <MenuItem onClick={() => { dispatch({ type: TOGGLE_MENU })}}><Link href="/"><MenuLink>Home</MenuLink></Link></MenuItem>
+                    <MenuItem onClick={() => { dispatch({ type: TOGGLE_MENU })}}><Link href="/profile"><MenuLink>Profile</MenuLink></Link></MenuItem>
                     <MenuItem><Link href="/events"><MenuLink>Events</MenuLink></Link></MenuItem>
                     <MenuItem><Link href="/about"><MenuLink>About</MenuLink></Link></MenuItem>
                     <MenuItem><Link href="/contact"><MenuLink>Contact</MenuLink></Link></MenuItem>
