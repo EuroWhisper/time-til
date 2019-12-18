@@ -1,6 +1,6 @@
 import { HIDE_ALERT, SHOW_ALERT } from '../actions/actiontypes';
 
-const initialState = null;
+const initialState = {type: "PRIMARY", title: "Welcome to Time 'til!", message: "Here you can add events to count down to."};
 
 const alert = (state = initialState, action) => {
     switch(action.type) {

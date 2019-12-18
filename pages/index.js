@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Navbar from '../components/navbar';
 import Container from '../components/container';
+import Alert from '../components/alert';
 
 const Title = styled.h1`
   font-weight: 500;
@@ -17,6 +18,7 @@ const Home = () => (
 
     <Navbar />
     <Container darkBackground>
+      <Alert />
       <Title>Hello</Title>
     </Container>
   </div>
