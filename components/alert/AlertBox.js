@@ -4,10 +4,12 @@ import CloseButton from './CloseButton';
 
 const Wrapper = styled.div`
     box-sizing: border-box;
-    padding: 16px;
+    padding: 8px;
     border-style: solid;
     border-width: 1px;
     border-radius: 8px;
+    position: relative;
+    display: flex;
 
     ${props => props.type === ALERT_PRIMARY && css`
         background-color: #FCEEFF;
@@ -26,11 +28,44 @@ const Wrapper = styled.div`
         color: #434343;
         border-color: #DC5361;
     `}
+
+    @media(min-width: 769px) {
+        padding: 16px;
+    }
+
+    @media(min-width: 1024px) {
+        width: 50%;
+    }
+
 `;
 
-const Content = styled.div``;
+const Icon = styled.div`
+    margin-right: 24px;
+    display: none;
 
-const Title = styled.h3`
+    ${props => props.type === ALERT_SUCCESS && css`
+        width: 56px;
+        height: 56px;
+        background-image: url(./img/components/alert/success.svg);
+    `}
+
+    ${props => props.type === ALERT_DANGER && css`
+        width: 56px;
+        height: 56px;
+        background-image: url(./img/components/alert/danger.svg);
+    `}
+
+    @media(min-width: 769px) {
+        display: block;
+    }
+`;
+
+const Content = styled.div`
+    max-width: 90%;
+`;
+
+const Title = styled.h2`
+    margin-top: 0;
 
 `;
 
@@ -40,12 +75,12 @@ const Message = styled.p`
 
 const AlertBox = ({type, title, message}) => (
     <Wrapper type={type}>
-        {/* <Icon/> */}
+        <Icon type={type}/>
         <Content>
             <Title>{title}</Title>
             <Message>{message}</Message>
         </Content>
-        <CloseButton/>
+        <CloseButton type={type} />
     </Wrapper>
 );
 

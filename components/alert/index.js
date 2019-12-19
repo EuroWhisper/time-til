@@ -25,9 +25,9 @@ const Alert = () => {
             case ALERT_PRIMARY:
                 return <AlertBox type={ALERT_PRIMARY} title={alert.title} message={alert.message} />;
             case ALERT_SUCCESS:
-                //...
+                return <AlertBox type={ALERT_SUCCESS} title={alert.title} message={alert.message} />;
             case ALERT_DANGER:
-                //...
+                return <AlertBox type={ALERT_DANGER} title={alert.title} message={alert.message} />;
             default:
                 return null;
         }
