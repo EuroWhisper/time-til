@@ -7,7 +7,7 @@ import MenuToggle from './MenuToggle';
 const Header = styled.header`
     width: 100%;
     min-height: 64px;
-    background-color: #333;
+    background-color: #5A415F;
     display: flex;
     align-items: center;
 

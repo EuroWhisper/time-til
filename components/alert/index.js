@@ -10,12 +10,15 @@ const Alert = () => {
     const dispatch = useDispatch();
     const alert = useSelector(alertSelector);
 
+
     // Hide alerts on unmount;
     useEffect(() => {
         return function cleanup() {
             dispatch({type: HIDE_ALERT, payload: null});
         };
     });
+
+    
 
     if (alert) {
         switch (alert.type) {

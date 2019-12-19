@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { ALERT_PRIMARY } from './alertTypes';
+import { ALERT_PRIMARY, ALERT_DANGER, ALERT_SUCCESS } from './alertTypes';
+import CloseButton from './CloseButton';
 
 const Wrapper = styled.div`
     box-sizing: border-box;
@@ -12,6 +13,18 @@ const Wrapper = styled.div`
         background-color: #FCEEFF;
         color: #434343;
         border-color: #5A415F;
+    `}
+
+    ${props => props.type === ALERT_SUCCESS && css`
+        background-color: #DBFFF8;
+        color: #434343;
+        border-color: #1AB394;
+    `}
+
+    ${props => props.type === ALERT_DANGER && css`
+        background-color: #F8D7DA;
+        color: #434343;
+        border-color: #DC5361;
     `}
 `;
 
@@ -32,6 +45,7 @@ const AlertBox = ({type, title, message}) => (
             <Title>{title}</Title>
             <Message>{message}</Message>
         </Content>
+        <CloseButton/>
     </Wrapper>
 );
 

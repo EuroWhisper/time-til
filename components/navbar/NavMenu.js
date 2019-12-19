@@ -23,15 +23,24 @@ const Menu = styled.ul`
     list-style: none;
     @media (min-width: 768px) {
         display: flex;
+        align-items: center;
     }
 `;
 
 const MenuItem = styled.li`
     margin-bottom: 24px;
+
+    @media(min-width: 769px) {
+        margin: 0 0 0 24px;
+    }
 `;
 
 const MenuLink = styled.a`
-    color: white;
+    color: #F7CCFF;
+
+    &:hover {
+        color: white;
+    }
 `;
 const fadeIn = keyframes`
     from {
@@ -47,6 +56,7 @@ const Button = styled.button`
     border-color: white;
     color: white;
     border-style: solid;
+    border-width: 1px;
     border-radius: 8px;
     height: 48px;
     width: 128px;
