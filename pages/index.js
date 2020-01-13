@@ -19,7 +19,7 @@ const Home = () => (
     <Navbar />
     <Container darkBackground>
       <Alert />
-      <Title>Hello</Title>
+      <Title>Latest events (everyone)</Title>
     </Container>
   </div>
 )
